@@ -5,12 +5,22 @@ namespace ConsoleUI
 {
 	class Program
 	{
+		/// <summary>
+		/// С этого метода начинается программа
+		/// </summary>
+		/// <param name="args">Входные параметры при запуске файла</param>
 		static void Main(string[] args)
 		{
-
 			while (Menu()) Console.WriteLine("=========================================================================");
 		}
-		static string[] fams = { "DemoUser", "Demo", "User" };
+		/// <summary>
+		/// Список студентов
+		/// </summary>
+		static string[] fams = { "DemoUser" };
+		/// <summary>
+		/// Приветсвует пользователя и отображает список студентов
+		/// </summary>
+		/// <returns></returns>
 		static bool Menu()
 		{
 			Console.WriteLine("Вы запустили программу в которой собраны работы студентов ВУЗа КГУ 2019 года поступления");
@@ -30,6 +40,10 @@ namespace ConsoleUI
 			else ShowTasks(resultFams[0]);
 			return true;
 		}
+		/// <summary>
+		/// Запускает метод отображение задач для конкретного студента
+		/// </summary>
+		/// <param name="fam">Фамилия студента</param>
 		static void ShowTasks(string fam)
 		{
 			Console.WriteLine("Задачи студента " + fam + " :");
@@ -39,6 +53,10 @@ namespace ConsoleUI
 				default: Console.WriteLine("Задачи студента не найдены"); break;
 			}
 		}
+		/// <summary>
+		/// Отображает список задач студента Demo и предоставляет механизм выбора задачи
+		/// </summary>
+		/// <returns></returns>
 		static bool DemoUser()
 		{
 			string[] tasks = Lib.DemoUser.Tasks();
@@ -66,6 +84,9 @@ namespace ConsoleUI
 			}
 			return true;
 		}
+		/// <summary>
+		/// Задача 1 студента DemoUser
+		/// </summary>
 		static void Task_1_Of_DemoUser()
 		{
 			int a, b;
@@ -79,6 +100,9 @@ namespace ConsoleUI
 			} while (!int.TryParse(Console.ReadLine(), out b));
 			Console.WriteLine("Результат: " + Lib.DemoUser.Task_1(a, b));
 		}
+		/// <summary>
+		/// Задача 2 студента DemoUser
+		/// </summary>
 		static void Task_2_Of_DemoUser()
 		{
 			int a, b;
